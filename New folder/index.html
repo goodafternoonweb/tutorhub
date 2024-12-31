@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TutorHub</title>
+    <style>
+        /* Basic styling for the layout */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background-color: #f4f4f9;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a.active {
+            font-weight: bold;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        /* Main content styles */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #2c3e50;
+        }
+
+        .profile input[type="file"] {
+            margin-top: 10px;
+        }
+
+        .points {
+            text-align: center;
+        }
+
+        .lessons {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .join-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .join-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>TutorHub</h2>
+        <ul>
+            <li><a href="#" class="active"><i class="icon">&#128200;</i> Dashboard</a></li>
+            <li><a href="#"><i class="icon">&#127891;</i> My Lessons</a></li>
+            <li><a href="#"><i class="icon">&#128736;</i> My Projects</a></li>
+            <li><a href="#"><i class="icon">&#128214;</i> My Quizzes</a></li>
+            <li><a href="#"><i class="icon">&#127942;</i> My Certificates</a></li>
+            <li><a href="#"><i class="icon">&#127881;</i> Competitions</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome to Your Dashboard</h1>
+        </div>
+        <div class="info">
+            <div class="profile">
+                <img id="profilePicture" src="https://via.placeholder.com/100" alt="Profile Picture">
+                <br>
+                <input type="file" id="uploadInput" accept="image/*">
+                <p>Your Name</p>
+                <p>Grade: 9</p>
+            </div>
+            <div class="points">
+                <p><strong>7 Credits Left</strong></p>
+                <p>3020 points remaining for Silver Level</p>
+            </div>
+        </div>
+        <div class="lessons">
+            <h2>Upcoming Lessons</h2>
+            <p>Advanced Math - Algebra</p>
+            <button class="join-btn">Join Class</button>
+        </div>
+    </div>
+
+    <script>
+        // Script to handle profile picture upload
+        const uploadInput = document.getElementById('uploadInput');
+        const profilePicture = document.getElementById('profilePicture');
+
+        uploadInput.addEventListener('change', function () {
+            const file = uploadInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profilePicture.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
